@@ -1,9 +1,10 @@
-from flask import Flask, jsonify, make_response, request
+from flask import Flask, jsonify, make_response, request, send_from_directory
 from flask_cors import CORS
 import pyodbc
 from icecream import ic
 import json
 from datetime import datetime, timedelta
+import os
 
 # Modules for Endpoint
 import Hierarchy as Hierarchy
@@ -14,11 +15,24 @@ import APIProcessList as APIProcessList
 import ExecuteProcessViaAPI as ExecuteProcessViaAPI
 import ProcessData as ProcessData
 
-app = Flask(__name__)
+
+#app = Flask(__name__)
+app = Flask(__name__,static_folder='C:/Users/Joel/Documents/Joel/Quintessence/Liberty/Atlas/UI/React V2/dist', static_url_path='/')
 CORS(app)
 
 # if the process name exists in this list, then we look for the key work on "EndDate" in the Context, otherwise we look for ValueDate
 context_map = {'EndDate':['Calc PnL - Alchemy','Calc TB - Alchemy','Calc PnL - Hiport','Calc TB - Hiport']}
+
+# Serve React static files
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    # If the requested file exists in the dist folder, serve it
+    if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
+        return send_from_directory(app.static_folder, path)
+    # Otherwise, serve index.html (for React's client-side routing)
+    else:
+        return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/hierarchy', methods=['GET'])
 def get_hierarchy_data():
