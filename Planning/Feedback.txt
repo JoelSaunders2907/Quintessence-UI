@@ -1,0 +1,27 @@
+Process Monitor
+Public Holiday -> Do we need to know if not a holiday?
+	Do we want to include a drop down of holidays to pick from?
+	Do we want to include a settings tab?
+Daily Process Monitor 
+	- Remove Process Monitor from main page
+Make tab names slightly bigger and bold
+Parent outside of box and all other processes in the blue blockey. 
+Better indentation set IDs
+(Lauren) - Group refresh button, last update, input date and pub hol. Similar to Mule -> Chat to Lauren about an idea.
+
+Performance
+Remove Performance Monitoring from page
+Keep date range and time selection together (View mode above\below date)
+Spacing of graph between settings and graph
+Remove names on SLA bar (tool tip when hovering) 
+	Process specific SLAs MVP2
+Order horizontal bar from earliest to latest (Include max bar size),not to overlap with time axis. Include dashed gridlines for time. 
+
+History
+Remove name "History"
+Add drop down ability, Default - full expansion.
+Reduce white spacing
+
+API
+Change Icon
+API Execution remove
