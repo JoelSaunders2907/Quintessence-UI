@@ -97,3 +97,5 @@ def fetch_tool_tip_data(map,date):
 #print(data)
 
 
+data = xml_to_dict('<KeyValuePairs><Item Key="ValueDate" Value="03 Jan 2025" DataType="DateTime;Report:Tradeable Instrument or Index Repo" /></KeyValuePairs>')
+print(data)

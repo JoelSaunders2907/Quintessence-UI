@@ -21,7 +21,9 @@ def get_holidays(date_string: str):
         if date in holiday_obj:
             holiday_list.append(f"{country} - {holiday_obj.get(date)}")
     
-    return holiday_list or ["No holidays found for the given date."]
+    #return holiday_list or ["No holidays found for the given date."]
+    return holiday_list or ''
+
 
 # # Example usage
 # date_input = "11 Nov 2024"

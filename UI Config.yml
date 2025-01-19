@@ -1,0 +1,9 @@
+# Application Configuration
+
+DataBase:
+  Server: "DESKTOP-43G58KI\SQLEXPRESS"
+  Database: "Atlas"
+
+#API:
+    #
+  

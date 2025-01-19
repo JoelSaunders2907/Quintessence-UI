@@ -2,10 +2,10 @@ import requests
 
 url = "http://localhost:5001/send_message"
 payload = {
-    "ProcessName": "Bloomberg",
-    "Context": "ValueDate:24 Dec 2024:DateTime",
-    "State": "COMPLETED",
-    "Sender": "UniCalc Engine"
+    "ProcessName": "TRADE_CRN",
+    "Context": "ValueDate:16 Jan 2025:DateTime",
+    "State": "RUNNING",
+    "Sender": "Joel"
 }
 response = requests.post(url, json=payload)
 #print(response.json())

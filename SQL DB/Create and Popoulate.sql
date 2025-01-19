@@ -49,7 +49,42 @@ VALUES	('Warehouse Load - PnL - Alchemy - Delete','Warehouse Load - PnL - Alchem
 		('Warehouse Load - TB - Alchemy - Update','Warehouse Load - TB - Alchemy - Update','Logged')
 
 INSERT INTO UI.Process ([Name],[DisplayName],[DeterminationType])
-VALUES	('Warehouse Load - PnL - Alchemy - 2','Warehouse Load - PnL - Alchemy - 2','Logged')
+VALUES	('Alchemy Quintessence','Alchemy Quintessence','Logged'),
+		('Market Data Reports','Market Data Reports','Logged'),
+		('A2_EQ_CD','A2_EQ_CD','Logged'),
+		('A2_EQ_VD','A2_EQ_VD','Logged'),
+		('A2_IR_VD','A2_IR_VD','Logged'),
+		('A2_IR_CD','A2_IR_CD','Logged'),
+
+		('A2_FX_VD_VOLS','A2_FX_VD_VOLS','Logged'),
+		('A2_FX_CD','A2_FX_CD','Logged'),
+		('A2_FX_VD','A2_FX_VD','Logged'),
+
+		('A2_IR_VD_FOREIGN','A2_IR_VD_FOREIGN','Logged'),
+		('A2_EQ_CD_MSCI','A2_EQ_CD_MSCI','Logged'),
+		('A2_EQ_VD_MSCI','A2_EQ_VD_MSCI','Logged'),
+		('Expanded Bond PDH','Expanded Bond PDH','Logged'),
+
+		('Bloomberg MD','Bloomberg MD','Logged'),
+		('Bloomberg MD2','Bloomberg MD2','Logged'),
+		('MTM Detailed','MTM Detailed','Logged'),
+		
+		('ED.ZIP','ED.ZIP','Logged'),
+		('SecurityData','SecurityData','Logged'),
+		('Bloomberg MD3','Bloomberg MD3','Logged'),
+
+		('I.ZIP','I.ZIP','Logged'),
+		('CompanyData','CompanyData','Logged'),
+
+		('SI.ZIP','SI.ZIP','Logged'),
+		('IR.ZIP','IR.ZIP','Logged'),
+
+		('MRS_LIBERTY_MRKDATA','MRS_LIBERTY_MRKDATA','Logged'),
+		
+		('LIBERTY_RESOURCES_ExchangeCloseJSE_EQVol_Index_Exchange','LIBERTY_RESOURCES_ExchangeCloseJSE_EQVol_Index_Exchange','Logged')
+
+INSERT INTO UI.Process ([Name],[DisplayName],[DeterminationType])
+VALUES	('Atlas Quintessence','Atlas Quintessence','Logged')
 
 SELECT *
 FROM UI.Process
@@ -147,6 +182,80 @@ EXEC UI.InsertRelationship 'TB - Hiport','Calc TB - Hiport',2,1,1
 EXEC UI.InsertRelationship 'All Hiport Source Files','H2_HOLDING',0,1,1
 EXEC UI.InsertRelationship 'All Hiport Source Files','H3_HOLDING',0,1,1
 
+
+-- Alchemy Quintessence Setup
+-- Parent, Child, Order, Order, Requirement, Visible
+EXEC UI.InsertRelationship 'Alchemy Quintessence','Market Data Reports',1,1,1
+
+EXEC UI.InsertRelationship 'Market Data Reports','A2_EQ_CD',0,1,1
+EXEC UI.InsertRelationship 'Market Data Reports','A2_EQ_VD',0,1,1
+EXEC UI.InsertRelationship 'Market Data Reports','A2_IR_VD',0,1,1
+EXEC UI.InsertRelationship 'Market Data Reports','A2_IR_CD',0,1,1
+EXEC UI.InsertRelationship 'Market Data Reports','A2_FX_VD_VOLS',0,1,1
+EXEC UI.InsertRelationship 'Market Data Reports','A2_FX_CD',0,1,1
+EXEC UI.InsertRelationship 'Market Data Reports','A2_FX_VD',0,1,1
+EXEC UI.InsertRelationship 'Market Data Reports','A2_IR_VD_FOREIGN',0,1,1
+EXEC UI.InsertRelationship 'Market Data Reports','A2_EQ_CD_MSCI',0,1,1
+EXEC UI.InsertRelationship 'Market Data Reports','A2_EQ_VD_MSCI',0,1,1
+EXEC UI.InsertRelationship 'Market Data Reports','Expanded Bond PDH',0,1,1
+
+EXEC UI.InsertRelationship 'A2_EQ_CD','Bloomberg MD',0,1,1
+EXEC UI.InsertRelationship 'A2_EQ_CD','Bloomberg MD2',0,1,1
+EXEC UI.InsertRelationship 'A2_EQ_CD','ED.ZIP',0,1,1
+EXEC UI.InsertRelationship 'A2_EQ_CD','I.ZIP',0,1,1
+EXEC UI.InsertRelationship 'A2_EQ_CD','SI.ZIP',0,1,1
+EXEC UI.InsertRelationship 'A2_EQ_CD','MRS_LIBERTY_MRKDATA',0,1,1
+EXEC UI.InsertRelationship 'A2_EQ_CD','LIBERTY_RESOURCES_ExchangeCloseJSE_EQVol_Index_Exchange',0,1,1
+
+EXEC UI.InsertRelationship 'A2_EQ_VD','Bloomberg MD',0,1,1
+EXEC UI.InsertRelationship 'A2_EQ_VD','Bloomberg MD2',0,1,1
+EXEC UI.InsertRelationship 'A2_EQ_VD','ED.ZIP',0,1,1
+EXEC UI.InsertRelationship 'A2_EQ_VD','I.ZIP',0,1,1
+EXEC UI.InsertRelationship 'A2_EQ_VD','SI.ZIP',0,1,1
+EXEC UI.InsertRelationship 'A2_EQ_VD','MRS_LIBERTY_MRKDATA',0,1,1
+EXEC UI.InsertRelationship 'A2_EQ_VD','LIBERTY_RESOURCES_ExchangeCloseJSE_EQVol_Index_Exchange',0,1,1
+
+EXEC UI.InsertRelationship 'A2_IR_VD','Bloomberg MD',0,1,1
+EXEC UI.InsertRelationship 'A2_IR_VD','Bloomberg MD2',0,1,1
+EXEC UI.InsertRelationship 'A2_IR_VD','SecurityData',0,1,1
+EXEC UI.InsertRelationship 'A2_IR_VD','CompanyData',0,1,1
+EXEC UI.InsertRelationship 'A2_IR_VD','IR.ZIP',0,1,1
+EXEC UI.InsertRelationship 'A2_IR_VD','MTM Detailed',0,1,1
+
+EXEC UI.InsertRelationship 'A2_IR_CD','Bloomberg MD',0,1,1
+EXEC UI.InsertRelationship 'A2_IR_CD','Bloomberg MD2',0,1,1
+EXEC UI.InsertRelationship 'A2_IR_CD','SecurityData',0,1,1
+EXEC UI.InsertRelationship 'A2_IR_CD','CompanyData',0,1,1
+EXEC UI.InsertRelationship 'A2_IR_CD','IR.ZIP',0,1,1
+EXEC UI.InsertRelationship 'A2_IR_CD','MTM Detailed',0,1,1
+
+EXEC UI.InsertRelationship 'A2_FX_VD_VOLS','Bloomberg MD2',0,1,1
+
+EXEC UI.InsertRelationship 'A2_FX_CD','Bloomberg MD',0,1,1
+EXEC UI.InsertRelationship 'A2_FX_CD','Bloomberg MD2',0,1,1
+
+EXEC UI.InsertRelationship 'A2_FX_VD','Bloomberg MD',0,1,1
+EXEC UI.InsertRelationship 'A2_FX_VD','Bloomberg MD2',0,1,1
+
+EXEC UI.InsertRelationship 'A2_IR_VD_FOREIGN','Bloomberg MD',0,1,1
+EXEC UI.InsertRelationship 'A2_IR_VD_FOREIGN','Bloomberg MD2',0,1,1
+
+EXEC UI.InsertRelationship 'A2_EQ_CD_MSCI','Bloomberg MD',0,1,1
+EXEC UI.InsertRelationship 'A2_EQ_CD_MSCI','Bloomberg MD2',0,1,1
+EXEC UI.InsertRelationship 'A2_EQ_CD_MSCI','Bloomberg MD3',0,1,1
+
+EXEC UI.InsertRelationship 'A2_EQ_VD_MSCI','Bloomberg MD',0,1,1
+EXEC UI.InsertRelationship 'A2_EQ_VD_MSCI','Bloomberg MD2',0,1,1
+EXEC UI.InsertRelationship 'A2_EQ_VD_MSCI','Bloomberg MD3',0,1,1
+
+EXEC UI.InsertRelationship 'Expanded Bond PDH','MTM Detailed',0,1,1
+
+EXEC UI.InsertRelationship 'Atlas Quintessence', 'Prepare Reporting - Alchemy and CashMi',0,1,1
+
+
+
+select *
+from UI.vwRelationship
 
 		--('Prepare Reporting - Hiport','Hiport Stragetic Reporting','Calculated'),
 
@@ -275,13 +384,13 @@ INSERT INTO UI.[State] ([Name],[Ordinal],[isDefault])
 VALUES	('FAILED',1,0),
 
 		('WAITING',2,1),
-		('IMPORTING',3,0),
-		('RECONCILING',4,0),
-		
-		('RUNNING',5,0), -- Counterintuitive, to get prepare reporting to say 'RUNNING', 'RUNNING' needs to be lower than 'READY TO RUN' since we take the lowest of children states
-		('READY TO RUN',6,0),
 
-		('COMPLETED',7,0)
+
+		
+		('RUNNING',3,0),
+
+
+		('COMPLETED',4,0)
 
 SELECT *
 FROM UI.[State]
@@ -292,7 +401,8 @@ CREATE TABLE UI.[ProcessLog] (
 			[ProcessID] INT NOT NULL,
 			[Context] XML NOT NULL,
             [StateID] INT NOT NULL,
-			[TimeStamp] DateTime NOT NULL DEFAULT GETDATE());
+			[TimeStamp] DateTime NOT NULL DEFAULT GETDATE(),
+			[Date] Date NOT NULL);
 				-- Add FK Constraints
 		ALTER TABLE UI.[ProcessLog] WITH NOCHECK
 		ADD CONSTRAINT FK_ProcessID FOREIGN KEY ([ProcessID]) REFERENCES UI.Process([ID]);
@@ -331,60 +441,13 @@ BEGIN
     -- Insert the log record
     
     BEGIN
-        INSERT INTO UI.[ProcessLog] ([ProcessID],[Context],[StateID],[TimeStamp])
-        VALUES (@ProcessID, @ContextXML, @StateID, GETDATE());
+        INSERT INTO UI.[ProcessLog] ([ProcessID],[Context],[StateID],[TimeStamp],[Date])
+        VALUES (@ProcessID, @ContextXML, @StateID, GETDATE(),cast(getdate() as DATE));
 
         PRINT 'Process Info Logged Successfull';
     END
-    
+   
 END;
-TRUNCATE TABLE UI.[ProcessLog]
-DROP TABLE UI.ProcessLog
-EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:24 Dec 2024:DateTime','IMPORTING'
-EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:23 Nov 2024:DateTime','RECONCILING'
-EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:22 Nov 2024:DateTime','RECONCILING'
-EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:22 Nov 2024:DateTime','COMPLETED'
-EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:23 Nov 2024:DateTime','IMPORTING'
-EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:18 Dec 2024:DateTime','FAILED'
-EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:18 Dec 2024:DateTime','IMPORTING'
-EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:18 Dec 2024:DateTime','RECONCILING'
-EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:18 Dec 2024:DateTime','RUNNING'
-EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:18 Dec 2024:DateTime','READY'
-EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:18 Dec 2024:DateTime','COMPLETED'
-
-
-EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:18 Dec 2024:DateTime','RUNNING'
-EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:18 Dec 2024:DateTime','IMPORTING'
-
-EXEC UI.InsertLogRecord 'TRADE_ELNA','ValueDate:22 Nov 2024:DateTime','IMPORTING'
-EXEC UI.InsertLogRecord 'TRADE_ELNA','ValueDate:22 Nov 2024:DateTime','RECONCILING'
-EXEC UI.InsertLogRecord 'TRADE_ELNA','ValueDate:22 Nov 2024:DateTime','COMPLETED'
-EXEC UI.InsertLogRecord 'TRADE_ELNA','ValueDate:18 Dec 2024:DateTime','COMPLETED'
-
-EXEC UI.InsertLogRecord 'TRADE_RSAB','ValueDate:22 Nov 2024:DateTime','IMPORTING'
-EXEC UI.InsertLogRecord 'TRADE_RSAB','ValueDate:22 Nov 2024:DateTime','RECONCILING'
-EXEC UI.InsertLogRecord 'TRADE_RSAB','ValueDate:18 Dec 2024:DateTime','COMPLETED'
-
-EXEC UI.InsertLogRecord 'Cache Lookup','ValueDate:18 Dec 2024:DateTime','RUNNING'
-EXEC UI.InsertLogRecord 'Cache Lookup','ValueDate:22 Nov 2024:DateTime','COMPLETED'
-
-EXEC UI.InsertLogRecord 'Calc PnL - Alchemy','StartDate:05 Jan 2025:DateTime,EndDate:05 Jan 2025:DateTime,Scope:All TB Books:String,UpdateWarehouse:TRUE:String','RUNNING'
-EXEC UI.InsertLogRecord 'Calc PnL - Alchemy','StartDate:21 Nov 2024:DateTime,Scope:All TB Books:String,EndDate:22 Nov 2024:DateTime,UpdateWarehouse:TRUE:String','FAILED'
-EXEC UI.InsertLogRecord 'Calc PnL - Alchemy','StartDate:17 Dec 2024:DateTime,EndDate:17 Dec 2024:DateTime,Scope:All TB Books:String,UpdateWarehouse:TRUE:String','RUNNING'
-EXEC UI.InsertLogRecord 'Calc PnL - Alchemy','StartDate:17 Dec 2024:DateTime,EndDate:17 Dec 2024:DateTime,Scope:All TB Books:String,UpdateWarehouse:TRUE:String','FAILED'
-EXEC UI.InsertLogRecord 'Calc PnL - Alchemy','ValueDate:22 Nov 2024:DateTime','COMPLETED'
-EXEC UI.InsertLogRecord 'Calc PnL - Alchemy','ValueDate:22 Nov 2024:DateTime','COMPLETED'
-
-EXEC UI.InsertLogRecord 'Calc TB - Alchemy','ValueDate:22 Nov 2024:DateTime','READY'
-EXEC UI.InsertLogRecord 'Calc TB - Alchemy','ValueDate:22 Nov 2024:DateTime','RUNNING'
-EXEC UI.InsertLogRecord 'Calc TB - Alchemy','ValueDate:22 Nov 2024:DateTime','COMPLETED'
-
-EXEC UI.InsertLogRecord 'Calc PnL - Alchemy','StartDate:06 Jan 2025:DateTime,Scope:All Hiport Books:String,EndDate:06 Jan 2025:DateTime,UpdateWarehouse:TRUE:String','RUNNING'
-
-EXEC UI.InsertLogRecord 'Warehouse Load - PnL - Alchemy - Delete','StartDate:18 Dec 2024:DateTime,Dataset:PnL:String,EndDate:23 Dec 2024:DateTime,Operation:Delete Data:String','RUNNING'
-EXEC UI.InsertLogRecord 'Warehouse Load - PnL - Alchemy - Delete','StartDate:18 Dec 2024:DateTime,Dataset:PnL:String,EndDate:23 Dec 2024:DateTime,Operation:Delete Data:String','COMPLETED'
-EXEC UI.InsertLogRecord 'Warehouse Load - PnL - Alchemy - Update','StartDate:18 Dec 2024:DateTime,Dataset:PnL:String,EndDate:23 Dec 2024:DateTime,Operation:Update Data:String','RUNNING'
-EXEC UI.InsertLogRecord 'Warehouse Load - PnL - Alchemy - Update','StartDate:18 Dec 2024:DateTime,Dataset:PnL:String,EndDate:23 Dec 2024:DateTime,Operation:Update Data:String','COMPLETED'
 
 
 DROP VIEW UI.vwProcessLog
@@ -394,7 +457,8 @@ SELECT
 	p.[Name],
 	pl.Context,
 	s.[Name] as 'StateName',
-	pl.[TimeStamp]
+	pl.[TimeStamp],
+	pl.[Date]
 
 FROM 
     UI.ProcessLog pl
@@ -447,8 +511,9 @@ from UI.APIProcess
 select *
 from UI.state
 
+
 SELECT *
-FROM UI.process
+FROM UI.processlog
 
 EXEC UI.InsertLogRecord 'Prepare Reporting - Alchemy and CashMi','ValueDate:22 Dec 2024:DateTime','RUNNING'
 EXEC UI.InsertLogRecord 'Prepare Reporting - Alchemy and CashMi','ValueDate:22 Dec 2024:DateTime','COMPLETED'
@@ -463,7 +528,7 @@ SELECT *
 FROM UI.vwProcessLog
 
 select *
-from Ui.ProcessLog
+from UI.ProcessLog
 
 TRUNCATE TABLE UI.ProcessLog
 
@@ -487,30 +552,69 @@ EXEC UI.InsertLogRecord 'Calc PnL - Alchemy','ValueDate:25 Dec 2024:DateTime','C
 EXEC UI.InsertLogRecord 'Calc TB - Alchemy','ValueDate:25 Dec 2024:DateTime','RUNNING'
 EXEC UI.InsertLogRecord 'Calc TB - Alchemy','ValueDate:25 Dec 2024:DateTime','COMPLETED'
 
-EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:06 Jan 2025:DateTime','RUNNING'
-EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:06 Jan 2025:DateTime','COMPLETED'
+EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:13 Jan 2025:DateTime','RUNNING'
+EXEC UI.InsertLogRecord 'TRADE_CRN','ValueDate:13 Jan 2025:DateTime','COMPLETED'
 
-EXEC UI.InsertLogRecord 'TRADE_ELNA','ValueDate:06 Jan 2025:DateTime','RUNNING'
-EXEC UI.InsertLogRecord 'TRADE_ELNA','ValueDate:06 Jan 2025:DateTime','COMPLETED'
+EXEC UI.InsertLogRecord 'TRADE_ELNA','ValueDate:13 Jan 2025:DateTime','RUNNING'
+EXEC UI.InsertLogRecord 'TRADE_ELNA','ValueDate:13 Jan 2025:DateTime','COMPLETED'
 
-EXEC UI.InsertLogRecord 'TRADE_RSAB','ValueDate:06 Jan 2025:DateTime','RUNNING'
-EXEC UI.InsertLogRecord 'TRADE_RSAB','ValueDate:06 Jan 2025:DateTime','COMPLETED'
+EXEC UI.InsertLogRecord 'TRADE_RSAB','ValueDate:13 Jan 2025:DateTime','RUNNING'
+EXEC UI.InsertLogRecord 'TRADE_RSAB','ValueDate:13 Jan 2025:DateTime','COMPLETED'
 
 SELECT *
 FROM UI.ProcessLog
 
 SELECT *
 FROM UI.vwProcessLog
-where name = 'TRADE_RSAB' and id > 32
 
 update UI.ProcessLog
-set [TimeStamp] = cast('2024-12-24 07:38:36.610' as datetime)
+set [TimeStamp] = cast('2025-01-13 06:05:49.133' as datetime)
+where ID = 8
+
+update UI.ProcessLog
+set [TimeStamp] = cast('2025-01-13 06:15:49.133' as datetime)
 where ID = 9
 
---DELETE 
---FROM UI.ProcessLog
---where ID in (29,30)
+update UI.ProcessLog
+set [TimeStamp] = cast('2025-01-13 06:13:49.133' as datetime)
+where ID = 10
+
+update UI.ProcessLog
+set [TimeStamp] = cast('2025-01-13 06:23:49.133' as datetime)
+where ID = 11
+
+update UI.ProcessLog
+set [TimeStamp] = cast('2025-01-13 06:20:49.133' as datetime)
+where ID = 12
+
+update UI.ProcessLog
+set [TimeStamp] = cast('2025-01-13 06:45:49.133' as datetime)
+where ID = 13
+
+DELETE
+FROM UI.ProcessLog
+where ID = 5
 
 select *
 from UI.APIProcess
 
+-- BUILD AN INDEX FOR UI.ProcessLog
+
+CREATE NONCLUSTERED INDEX IX_ProcessLog_Date
+ON UI.ProcessLog([Date])
+
+SELECT *
+FROM UI.vwProcessLog
+WHERE [DATE] = '2025-01-14'
+
+SELECT *
+FROM UI.ProcessLog
+WHERE [DATE] = '2025-01-14'
+
+--Clustered, logic order for frequent queries
+CREATE CLUSTERED INDEX IX_ProcessLog_Date_ProcessID
+ON UI.ProcessLog([Date],[ProcessID])
+
+
+SELECT *
+FROM UI.vwProcessLog

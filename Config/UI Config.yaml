@@ -1,0 +1,9 @@
+# Application Configuration
+
+Database:
+  Server: 'DESKTOP-43G58KI\SQLEXPRESS'
+  Database: 'Atlas'
+
+API:
+  TBA: 
+  

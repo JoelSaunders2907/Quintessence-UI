@@ -1,0 +1,19 @@
+<service>
+  <id>python-qx-api</id>
+  <name>Qx UI API</name>
+  <description>A Flask API Serving the Qx UI</description>
+  
+  <!-- Path to Python file -->
+  <executable>python</executable>
+  <arguments>API.py</arguments>
+
+  <!-- Set working directory -->
+  <workingdirectory>C:\Users\Joel\Documents\Joel\Quintessence\Liberty\Atlas\UI\API</workingdirectory>
+  
+  <!-- Logging -->
+  <logpath>C:\Users\Joel\Documents\Joel\Quintessence\Liberty\Atlas\UI\Logs</logpath>
+  <logmode>roll</logmode>
+
+  <!-- Set service start-up type (automatic, manual, delayed, etc.) -->
+  <startmode>Manual</startmode>
+</service>

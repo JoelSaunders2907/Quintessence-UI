@@ -1,0 +1,85 @@
+2025-01-13 15:06:53,608 DEBUG - Starting WinSW in console mode
+2025-01-13 15:06:53,650 INFO  - Uninstalling service 'Qx UI API (python-qx-api)'...
+2025-01-13 15:06:53,659 INFO  - Service 'Qx UI API (python-qx-api)' was uninstalled successfully.
+2025-01-13 15:06:59,654 DEBUG - Starting WinSW in console mode
+2025-01-13 15:06:59,696 INFO  - Installing service 'Qx UI API (python-qx-api)'...
+2025-01-13 15:06:59,728 INFO  - Service 'Qx UI API (python-qx-api)' was installed successfully.
+2025-01-13 15:07:11,554 DEBUG - Starting WinSW in console mode
+2025-01-13 15:07:11,595 INFO  - Uninstalling service 'Qx UI API (python-qx-api)'...
+2025-01-13 15:07:11,603 INFO  - Service 'Qx UI API (python-qx-api)' was uninstalled successfully.
+2025-01-13 15:07:19,193 DEBUG - Starting WinSW in console mode
+2025-01-13 15:07:19,236 INFO  - Installing service 'Qx UI API (python-qx-api)'...
+2025-01-13 15:07:19,264 INFO  - Service 'Qx UI API (python-qx-api)' was installed successfully.
+2025-01-13 15:07:31,966 DEBUG - Starting WinSW in service mode
+2025-01-13 15:07:32,152 INFO  - Starting python API.py
+2025-01-13 15:07:32,198 INFO  - Started process 31300
+2025-01-13 15:07:32,222 DEBUG - Forwarding logs of the process System.Diagnostics.Process (python) to WinSW.RollingLogAppender
+2025-01-13 15:08:22,203 DEBUG - Starting WinSW in service mode
+2025-01-13 15:08:22,389 INFO  - Starting python API.py
+2025-01-13 15:08:22,427 INFO  - Started process 31584
+2025-01-13 15:08:22,451 DEBUG - Forwarding logs of the process System.Diagnostics.Process (python) to WinSW.RollingLogAppender
+2025-01-13 15:08:43,741 DEBUG - Starting WinSW in service mode
+2025-01-13 15:08:43,928 INFO  - Starting python API.py
+2025-01-13 15:08:43,966 INFO  - Started process 29912
+2025-01-13 15:08:43,994 DEBUG - Forwarding logs of the process System.Diagnostics.Process (python) to WinSW.RollingLogAppender
+2025-01-14 10:33:44,809 INFO  - Stopping python-qx-api
+2025-01-14 10:33:44,816 DEBUG - ProcessKill 29912
+2025-01-14 10:33:44,843 DEBUG - Stopping process 29912...
+2025-01-14 10:33:45,280 DEBUG - Process 29912 canceled with code 0.
+2025-01-14 10:33:45,298 INFO  - Finished python-qx-api
+2025-01-15 11:17:09,826 DEBUG - Starting WinSW in service mode
+2025-01-15 11:17:10,011 INFO  - Starting python API.py
+2025-01-15 11:17:10,051 INFO  - Started process 11460
+2025-01-15 11:17:10,072 DEBUG - Forwarding logs of the process System.Diagnostics.Process (python) to WinSW.RollingLogAppender
+2025-01-15 11:41:58,723 DEBUG - Starting WinSW in service mode
+2025-01-15 11:41:58,912 INFO  - Starting python API.py
+2025-01-15 11:41:58,951 INFO  - Started process 24052
+2025-01-15 11:41:58,971 DEBUG - Forwarding logs of the process System.Diagnostics.Process (python) to WinSW.RollingLogAppender
+2025-01-15 11:43:06,438 INFO  - Stopping python-qx-api
+2025-01-15 11:43:06,439 DEBUG - ProcessKill 24052
+2025-01-15 11:43:06,443 DEBUG - Stopping process 24052...
+2025-01-15 11:43:06,541 DEBUG - Process 24052 canceled with code 0.
+2025-01-15 11:43:06,548 INFO  - Finished python-qx-api
+2025-01-15 11:43:18,693 DEBUG - Starting WinSW in service mode
+2025-01-15 11:43:18,883 INFO  - Starting python API.py
+2025-01-15 11:43:18,923 INFO  - Started process 37856
+2025-01-15 11:43:18,947 DEBUG - Forwarding logs of the process System.Diagnostics.Process (python) to WinSW.RollingLogAppender
+2025-01-15 11:43:43,469 DEBUG - Starting WinSW in service mode
+2025-01-15 11:43:43,661 INFO  - Starting python API.py
+2025-01-15 11:43:43,704 INFO  - Started process 2796
+2025-01-15 11:43:43,729 DEBUG - Forwarding logs of the process System.Diagnostics.Process (python) to WinSW.RollingLogAppender
+2025-01-15 11:44:49,727 DEBUG - Starting WinSW in service mode
+2025-01-15 11:44:49,910 INFO  - Starting python API.py
+2025-01-15 11:44:49,949 INFO  - Started process 33260
+2025-01-15 11:44:49,974 DEBUG - Forwarding logs of the process System.Diagnostics.Process (python) to WinSW.RollingLogAppender
+2025-01-15 12:16:08,165 DEBUG - Starting WinSW in service mode
+2025-01-15 12:16:08,358 INFO  - Starting python API.py
+2025-01-15 12:16:08,414 INFO  - Started process 7516
+2025-01-15 12:16:08,438 DEBUG - Forwarding logs of the process System.Diagnostics.Process (python) to WinSW.RollingLogAppender
+2025-01-15 12:16:53,797 DEBUG - Starting WinSW in service mode
+2025-01-15 12:16:53,978 INFO  - Starting python API.py
+2025-01-15 12:16:54,020 INFO  - Started process 24852
+2025-01-15 12:16:54,040 DEBUG - Forwarding logs of the process System.Diagnostics.Process (python) to WinSW.RollingLogAppender
+2025-01-15 12:17:24,767 INFO  - Stopping python-qx-api
+2025-01-15 12:17:24,768 DEBUG - ProcessKill 24852
+2025-01-15 12:17:24,772 DEBUG - Stopping process 24852...
+2025-01-15 12:17:24,868 DEBUG - Process 24852 canceled with code 0.
+2025-01-15 12:17:24,875 INFO  - Finished python-qx-api
+2025-01-15 15:51:02,191 DEBUG - Starting WinSW in service mode
+2025-01-15 15:51:02,391 INFO  - Starting python API.py
+2025-01-15 15:51:02,446 INFO  - Started process 24636
+2025-01-15 15:51:02,489 DEBUG - Forwarding logs of the process System.Diagnostics.Process (python) to WinSW.RollingLogAppender
+2025-01-15 15:57:21,782 INFO  - Stopping python-qx-api
+2025-01-15 15:57:21,784 DEBUG - ProcessKill 24636
+2025-01-15 15:57:21,790 DEBUG - Stopping process 24636...
+2025-01-15 15:57:21,938 DEBUG - Process 24636 canceled with code 0.
+2025-01-15 15:57:21,947 INFO  - Finished python-qx-api
+2025-01-15 16:07:56,017 DEBUG - Starting WinSW in service mode
+2025-01-15 16:07:56,222 INFO  - Starting python API.py
+2025-01-15 16:07:56,277 INFO  - Started process 37416
+2025-01-15 16:07:56,316 DEBUG - Forwarding logs of the process System.Diagnostics.Process (python) to WinSW.RollingLogAppender
+2025-01-15 17:40:57,116 INFO  - Stopping python-qx-api
+2025-01-15 17:40:57,119 DEBUG - ProcessKill 37416
+2025-01-15 17:40:57,137 DEBUG - Stopping process 37416...
+2025-01-15 17:40:57,455 DEBUG - Process 37416 canceled with code 0.
+2025-01-15 17:40:57,466 INFO  - Finished python-qx-api

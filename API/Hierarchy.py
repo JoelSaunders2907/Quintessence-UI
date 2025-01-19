@@ -4,6 +4,8 @@ import pyodbc
 from icecream import ic
 import json
 
+from DBConnector import ConnectToDB
+
 ic.disable()
 
 
@@ -21,23 +23,23 @@ def populate_states(hierarchy,states):
         return updated_hierarchy
 
 
-def ConnectToDB():
-        # conn_str = (
-        # "DRIVER={ODBC Driver 17 for SQL Server};"
-        # "SERVER=DESKTOP-43G58KI\SQLEXPRESS;"
-        # "DATABASE=Atlas;"
-        # "Trusted_Connection=yes;")
-        conn_str = (
-        "DRIVER={ODBC Driver 17 for SQL Server};"
-        "SERVER=DESKTOP-43G58KI\SQLEXPRESS;"
-        "DATABASE=Atlas;"
-        "UID=Joel;"
-        "PWD=password;")
-        conn = pyodbc.connect(conn_str)
-        #print("Connection Successful")
-        conn.execute("USE ATLAS")
-        cursor = conn.cursor()
-        return cursor
+# def ConnectToDB():
+#         conn_str = (
+#         "DRIVER={ODBC Driver 17 for SQL Server};"
+#         "SERVER=DESKTOP-43G58KI\SQLEXPRESS;"
+#         "DATABASE=Atlas;"
+#         "Trusted_Connection=yes;")
+#         # conn_str = (
+#         # "DRIVER={ODBC Driver 17 for SQL Server};"
+#         # "SERVER=DESKTOP-43G58KI\SQLEXPRESS;"
+#         # "DATABASE=Atlas;"
+#         # "UID=Joel;"
+#         # "PWD=password;")
+#         conn = pyodbc.connect(conn_str)
+#         #print("Connection Successful")
+#         conn.execute("USE ATLAS")
+#         cursor = conn.cursor()
+#         return cursor
 
 def build_hierarchy(parallel_hierarchy):
 
@@ -143,6 +145,9 @@ def calculate_process_state(cursor,process,parallel_hierarchy):
     # Get the ordinal for the states
     # Select the lowest state
     #try:
+    #ic.enable()
+    ic('time to calculate process state')
+    ic.disable()
     if parallel_hierarchy == False:
         children_query = f"""
         SELECT ChildProcessName
@@ -162,12 +167,16 @@ def calculate_process_state(cursor,process,parallel_hierarchy):
     children = cursor.execute(children_query).fetchall()
     ic(children)
     for child in children:
+        #ic.enable()
         ic(child[0])
+        
         current_child_state = reverse_hierarchy[child[0]]
-        #ic(current_child_state)
+        ic(current_child_state)
         child_state_arr.append(current_child_state)
-
+        ic.disable()
+    #ic.enable()
     ic(child_state_arr)
+    ic.disable()
     state_order_query = """
     SELECT [Name]
     FROM UI.[State]
@@ -179,16 +188,27 @@ def calculate_process_state(cursor,process,parallel_hierarchy):
     for state in state_order_raw:
         state_order.append(state[0])
 
+    #ic.enable()
+    ic(state_order)
+    ic.disable()
+    state_found = False
     #ic(state_order)
     for state in state_order:
         #ic(state)
         if state in child_state_arr:
             ic(f'found matching state: {state}')
             ic(f'Calculated state of {state} for process {process}')
+            state_found = True
             return state
             break
-        else:
-            pass
+    
+    
+    if state_found == False:
+        #ic.enable()
+        ic('found no state for children, assign default value')
+        return 'WAITING'
+        ic.disable()
+        pass
         
 
     # except:
@@ -196,6 +216,8 @@ def calculate_process_state(cursor,process,parallel_hierarchy):
     
     return reverse_hierarchy
 
+def calculate_default_state_value():
+    pass
 
 #def get_latest_logged_state(cursor,process,use_default = bool):
 def get_latest_logged_state(cursor,process,context_map,date,use_default = bool): 
@@ -254,7 +276,8 @@ def get_latest_logged_state(cursor,process,context_map,date,use_default = bool):
     except:
         if use_default:
             ic(f'no state logged, returning default state value of {default_state_value}')
-            return default_state_value
+            #return default_state_value
+            return None
         else:
             return None
 
@@ -266,20 +289,52 @@ def populate_reverse_hierarchy(cursor, reverse_hierarchy,context_map,date,parall
     ic('populate reverse hierarchy')
 
 
-    for process in reverse_hierarchy.keys():
-        #ic(reverse_hierarchy)
-        DeterminationType = ProcessStateDetermination(cursor, process)
-        ic(f'process: {process} is determined {DeterminationType}')
+    # for process in reverse_hierarchy.keys():
+    #     #ic.enable()
+    #     #ic(process)
+    #     ic.disable()
+    #     #ic(reverse_hierarchy)
+    #     DeterminationType = ProcessStateDetermination(cursor, process)
+    #     ic(f'process: {process} is determined {DeterminationType}')
         
-        if DeterminationType == "Logged": # find the latest log entry for this process, and if you can't use the default value
+    #     if DeterminationType == "Logged": # find the latest log entry for this process, and if you can't use the default value
             
-            #status = get_latest_logged_state(cursor,process,True)
-            status = get_latest_logged_state(cursor,process,context_map,date,True)
-            reverse_hierarchy[process] = status
+    #         #status = get_latest_logged_state(cursor,process,True)
+    #         status = get_latest_logged_state(cursor,process,context_map,date,True)
+    #         reverse_hierarchy[process] = status
             
-        elif DeterminationType == "Calculated":
-            calculated_state = calculate_process_state(cursor, process, parallel_hierarchy)
-            reverse_hierarchy[process] = calculated_state
+    #     elif DeterminationType == "Calculated":
+    #         #calculated_state = calculate_process_state(cursor, process, parallel_hierarchy)
+    #         status = calculate_process_state(cursor, process, parallel_hierarchy)
+
+    #         #reverse_hierarchy[process] = calculated_state
+    #         reverse_hierarchy[process] = status
+
+    #     #ic.enable()
+    #     #ic(status)
+    #     ic.disable()
+    
+    for process in reverse_hierarchy.keys():
+        #ic.enable()
+        ic(process)
+        ic.disable()
+        #ic(reverse_hierarchy)
+        
+        logged_status = get_latest_logged_state(cursor,process,context_map,date,True)
+        #ic.enable()
+        ic(logged_status)
+        ic.disable()
+        if logged_status == None:
+            calcualted_state = calculate_process_state(cursor, process, parallel_hierarchy)
+            status = calcualted_state
+        else:
+            status = logged_status
+
+        reverse_hierarchy[process] = status
+
+        #ic.enable()
+        ic(status)
+        ic.disable()
 
     return reverse_hierarchy
 
@@ -331,7 +386,7 @@ def fetch_hierarchy_data(map,date,parallel_hierarchy = bool):
     hierarchy_objects = build_hierarchy(parallel_hierarchy)
     
     hierarchy = hierarchy_objects[0]
-    #ic.enable()
+    ##ic.enable()
     #ic(hierarchy)
     #ic.disable()
     unpopulated_hierarchy = hierarchy_objects[1]
@@ -350,11 +405,11 @@ def fetch_hierarchy_data(map,date,parallel_hierarchy = bool):
 
     return populated_hierarchy
 
-# For Testing
-context_map = {'EndDate':['Calc PnL - Alchemy','Calc TB - Alchemy','Calc PnL - Hiport','Calc TB - Hiport','Warehouse Load - PnL - Alchemy - Delete','Warehouse Load - PnL - Alchemy - Update','Warehouse Load - TB - Alchemy - Delete','Warehouse Load - TB - Alchemy - Update']}
-date = '18 Dec 2024'
-parallel_hierarchy = False
-hierarchy_data = fetch_hierarchy_data(context_map,date,parallel_hierarchy)
-print(hierarchy_data)
+# # For Testing
+# context_map = {'EndDate':['Calc PnL - Alchemy','Calc TB - Alchemy','Calc PnL - Hiport','Calc TB - Hiport','Warehouse Load - PnL - Alchemy - Delete','Warehouse Load - PnL - Alchemy - Update','Warehouse Load - TB - Alchemy - Delete','Warehouse Load - TB - Alchemy - Update']}
+# date = '06 Jan 2025'
+# parallel_hierarchy = False
+# hierarchy_data = fetch_hierarchy_data(context_map,date,parallel_hierarchy)
+
 
 

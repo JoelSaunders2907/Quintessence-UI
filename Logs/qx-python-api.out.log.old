@@ -1,0 +1,60 @@
+ * Serving Flask app 'API'
+ * Debug mode: on
+/hierarchy
+/hierarchy
+Connection Successful
+Connection Successful
+Connection Successful
+Connection Successful
+SELECT ParentProcessName, ChildProcessName FROM UI.vwRelationship
+Connection Successful
+Connection Successful
+SELECT ParentProcessName, ChildProcessName FROM UI.vwRelationship
+/hierarchy
+Connection Successful
+Connection Successful
+Connection Successful
+SELECT ParentProcessName, ChildProcessName FROM UI.vwRelationship
+/hierarchy
+Connection Successful
+Connection Successful
+Connection Successful
+SELECT ParentProcessName, ChildProcessName FROM UI.vwRelationship
+/hierarchy
+Connection Successful
+Connection Successful
+Connection Successful
+SELECT ParentProcessName, ChildProcessName FROM UI.vwRelationship
+['All Alchemy Source Files', 'TRADE_CRN', 'TRADE_ELNA', 'TRADE_RSAB']
+2025-01-14 00:00:00
+<class 'datetime.datetime'>
+2025-01-14 00:00:00
+<class 'datetime.datetime'>
+Connection Successful
+{}
+{'TRADE_CRN': {datetime.date(2025, 1, 14): [datetime.datetime(2025, 1, 14, 17, 17, 30, 390000), datetime.datetime(2025, 1, 14, 17, 28, 32, 727000)]}}
+{'TRADE_CRN': {datetime.date(2025, 1, 14): [datetime.datetime(2025, 1, 14, 17, 17, 30, 390000), datetime.datetime(2025, 1, 14, 17, 28, 32, 727000)]}, 'TRADE_ELNA': {datetime.date(2025, 1, 14): [datetime.datetime(2025, 1, 14, 17, 17, 42, 337000), datetime.datetime(2025, 1, 14, 17, 23, 46, 507000)]}}
+{'TRADE_CRN': {datetime.date(2025, 1, 14): [datetime.datetime(2025, 1, 14, 17, 17, 30, 390000), datetime.datetime(2025, 1, 14, 17, 28, 32, 727000)]}, 'TRADE_ELNA': {datetime.date(2025, 1, 14): [datetime.datetime(2025, 1, 14, 17, 17, 42, 337000), datetime.datetime(2025, 1, 14, 17, 23, 46, 507000)]}}
+{'TRADE_CRN': {datetime.date(2025, 1, 14): [datetime.datetime(2025, 1, 14, 17, 17, 30, 390000), datetime.datetime(2025, 1, 14, 17, 28, 32, 727000)]}, 'TRADE_ELNA': {datetime.date(2025, 1, 14): [datetime.datetime(2025, 1, 14, 17, 17, 42, 337000), datetime.datetime(2025, 1, 14, 17, 23, 46, 507000)]}}
+['All Alchemy Source Files', 'TRADE_CRN', 'TRADE_ELNA', 'TRADE_RSAB']
+2025-01-13 00:00:00
+<class 'datetime.datetime'>
+2025-01-14 00:00:00
+<class 'datetime.datetime'>
+Connection Successful
+['All Alchemy Source Files', 'TRADE_CRN', 'TRADE_ELNA', 'TRADE_RSAB']
+2025-01-13 00:00:00
+<class 'datetime.datetime'>
+2025-01-13 00:00:00
+<class 'datetime.datetime'>
+Connection Successful
+{}
+{'TRADE_CRN': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 5, 49, 133000), datetime.datetime(2025, 1, 13, 6, 15, 49, 133000)], datetime.date(2025, 1, 14): [datetime.datetime(2025, 1, 14, 17, 17, 30, 390000), datetime.datetime(2025, 1, 14, 17, 28, 32, 727000)]}}
+{'TRADE_CRN': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 5, 49, 133000), datetime.datetime(2025, 1, 13, 6, 15, 49, 133000)], datetime.date(2025, 1, 14): [datetime.datetime(2025, 1, 14, 17, 17, 30, 390000), datetime.datetime(2025, 1, 14, 17, 28, 32, 727000)]}, 'TRADE_ELNA': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 13, 49, 133000), datetime.datetime(2025, 1, 13, 6, 23, 49, 133000)], datetime.date(2025, 1, 14): [datetime.datetime(2025, 1, 14, 17, 17, 42, 337000), datetime.datetime(2025, 1, 14, 17, 23, 46, 507000)]}}
+{'TRADE_CRN': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 5, 49, 133000), datetime.datetime(2025, 1, 13, 6, 15, 49, 133000)], datetime.date(2025, 1, 14): [datetime.datetime(2025, 1, 14, 17, 17, 30, 390000), datetime.datetime(2025, 1, 14, 17, 28, 32, 727000)]}, 'TRADE_ELNA': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 13, 49, 133000), datetime.datetime(2025, 1, 13, 6, 23, 49, 133000)], datetime.date(2025, 1, 14): [datetime.datetime(2025, 1, 14, 17, 17, 42, 337000), datetime.datetime(2025, 1, 14, 17, 23, 46, 507000)]}, 'TRADE_RSAB': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 20, 49, 133000), datetime.datetime(2025, 1, 13, 6, 45, 49, 133000)]}}
+{'TRADE_CRN': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 5, 49, 133000), datetime.datetime(2025, 1, 13, 6, 15, 49, 133000)], datetime.date(2025, 1, 14): [datetime.datetime(2025, 1, 14, 17, 17, 30, 390000), datetime.datetime(2025, 1, 14, 17, 28, 32, 727000)]}, 'TRADE_ELNA': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 13, 49, 133000), datetime.datetime(2025, 1, 13, 6, 23, 49, 133000)], datetime.date(2025, 1, 14): [datetime.datetime(2025, 1, 14, 17, 17, 42, 337000), datetime.datetime(2025, 1, 14, 17, 23, 46, 507000)]}, 'TRADE_RSAB': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 20, 49, 133000), datetime.datetime(2025, 1, 13, 6, 45, 49, 133000)]}}
+{}
+{'TRADE_CRN': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 5, 49, 133000), datetime.datetime(2025, 1, 13, 6, 15, 49, 133000)]}}
+{'TRADE_CRN': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 5, 49, 133000), datetime.datetime(2025, 1, 13, 6, 15, 49, 133000)]}, 'TRADE_ELNA': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 13, 49, 133000), datetime.datetime(2025, 1, 13, 6, 23, 49, 133000)]}}
+{'TRADE_CRN': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 5, 49, 133000), datetime.datetime(2025, 1, 13, 6, 15, 49, 133000)]}, 'TRADE_ELNA': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 13, 49, 133000), datetime.datetime(2025, 1, 13, 6, 23, 49, 133000)]}, 'TRADE_RSAB': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 20, 49, 133000), datetime.datetime(2025, 1, 13, 6, 45, 49, 133000)]}}
+{'TRADE_CRN': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 5, 49, 133000), datetime.datetime(2025, 1, 13, 6, 15, 49, 133000)]}, 'TRADE_ELNA': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 13, 49, 133000), datetime.datetime(2025, 1, 13, 6, 23, 49, 133000)]}, 'TRADE_RSAB': {datetime.date(2025, 1, 13): [datetime.datetime(2025, 1, 13, 6, 20, 49, 133000), datetime.datetime(2025, 1, 13, 6, 45, 49, 133000)]}}

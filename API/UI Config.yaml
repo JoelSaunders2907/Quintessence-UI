@@ -1,0 +1,26 @@
+# Application Configuration
+
+ENVIRONMENT:
+    ENVNAME: 'DEV'
+
+PORT:
+    API: 5000
+    UI: 3000
+
+DATABASE:
+    Server: 'DESKTOP-43G58KI\SQLEXPRESS'
+    Database: 'Atlas'
+
+FRONTENDBUILD:
+    RelativePath: '..\React V2\dist'
+
+ENDPOINTS:
+    HIERARCHY: '/hierarchy'
+    TOOLTIPS: '/tooltips'
+    HOLIDAYS: '/holiday'
+    HISTORY: '/history'
+    PROCESS_LIST: '/process_list'
+    API_PROCESS_LIST: '/api_process_list'
+    EXECUTE_PROCESS: '/execute_process_via_api'
+    PROCESS_PERFORMANCE_DATA: '/process_performance_data'
+    

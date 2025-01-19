@@ -15,9 +15,16 @@ import APIProcessList as APIProcessList
 import ExecuteProcessViaAPI as ExecuteProcessViaAPI
 import ProcessData as ProcessData
 
+import ConfigReader as ConfigReader
+
+
+config = ConfigReader.read_config()
 
 #app = Flask(__name__)
-app = Flask(__name__,static_folder='C:/Users/Joel/Documents/Joel/Quintessence/Liberty/Atlas/UI/React V2/dist', static_url_path='/')
+#app = Flask(__name__,static_folder='C:/Users/Joel/Documents/Joel/Quintessence/Liberty/Atlas/UI/React V2/dist', static_url_path='/')
+#app = Flask(__name__,static_folder=os.path.join(os.path.dirname(__file__),'..','React V2','dist'), static_url_path='/')
+#print(build_path())
+app = Flask(__name__,static_folder=ConfigReader.build_path(), static_url_path='/')
 CORS(app)
 
 # if the process name exists in this list, then we look for the key work on "EndDate" in the Context, otherwise we look for ValueDate
@@ -34,13 +41,17 @@ def serve(path):
     else:
         return send_from_directory(app.static_folder, 'index.html')
 
-@app.route('/hierarchy', methods=['GET'])
+#hierarchy endpoint
+#@app.route('/hierarchy', methods=['GET'])
+@app.route(config['ENDPOINTS']['HIERARCHY'], methods=['GET'])
 def get_hierarchy_data():
+    print(config['ENDPOINTS']['HIERARCHY'])
     date_string = request.args.get('date')
     date_object = datetime.strptime(date_string, '%Y-%m-%d')
     date = date_object.strftime('%d %b %Y')
     data = Hierarchy.fetch_hierarchy_data(context_map,date,False)
     return jsonify(data)
+
 
 @app.route('/parallel_hierarchy', methods=['GET'])
 def get_paralle_hierarchy_data():
@@ -50,7 +61,9 @@ def get_paralle_hierarchy_data():
     data = Hierarchy.fetch_hierarchy_data(context_map,date,True)
     return jsonify(data)
 
-@app.route('/tooltips', methods=['GET'])
+#hierarchy endpoint
+#@app.route('/tooltips', methods=['GET'])
+@app.route(config['ENDPOINTS']['TOOLTIPS'], methods=['GET'])
 def get_tool_tip_data():
     date_string = request.args.get('date')
     date_object = datetime.strptime(date_string, '%Y-%m-%d')
@@ -59,7 +72,8 @@ def get_tool_tip_data():
     response = json.dumps(data,ensure_ascii=False,sort_keys=False)
     return response
 
-@app.route('/holiday', methods=['GET'])
+#@app.route('/holiday', methods=['GET'])
+@app.route(config['ENDPOINTS']['HOLIDAYS'], methods=['GET'])
 def get_holiday_data():
     date_string = request.args.get('date')
     date_object = datetime.strptime(date_string, '%Y-%m-%d')
@@ -69,7 +83,8 @@ def get_holiday_data():
     response = json.dumps(data,ensure_ascii=False,sort_keys=False)
     return response
 
-@app.route('/history', methods=['GET'])
+#@app.route('/history', methods=['GET'])
+@app.route(config['ENDPOINTS']['HISTORY'], methods=['GET'])
 def get_history():
     date_string = request.args.get('date')
     date = datetime.strptime(date_string, '%Y-%m-%d')
@@ -83,7 +98,8 @@ def get_history():
     response = json.dumps(history_data,ensure_ascii=False,sort_keys=False)
     return response
 
-@app.route('/api_process_list', methods=['GET'])
+#@app.route('/api_process_list', methods=['GET'])
+@app.route(config['ENDPOINTS']['API_PROCESS_LIST'], methods=['GET'])
 def get_api_process_list():
     
     api_process_list = APIProcessList.parse_process_xml_simplified()
@@ -92,7 +108,8 @@ def get_api_process_list():
     return response
 
 
-@app.route('/execute_process_via_api', methods=['GET'])
+#@app.route('/execute_process_via_api', methods=['GET'])
+@app.route(config['ENDPOINTS']['EXECUTE_PROCESS'], methods=['GET'])
 def execute_process_via_api():
     # Extract query string parameters
     data = request.args
@@ -119,7 +136,8 @@ def execute_process_via_api():
     #response = json.dumps(process_list,ensure_ascii=False,sort_keys=False)
     #return response
 
-@app.route('/process_list', methods=['GET'])
+#@app.route('/process_list', methods=['GET'])
+@app.route(config['ENDPOINTS']['PROCESS_LIST'], methods=['GET'])
 def get_process_list():
     
     process_list = ProcessData.get_process_list()
@@ -127,7 +145,8 @@ def get_process_list():
     response = json.dumps(process_list,ensure_ascii=False,sort_keys=False)
     return response
 
-@app.route('/process_performance_data', methods=['GET'])
+#@app.route('/process_performance_data', methods=['GET'])
+@app.route(config['ENDPOINTS']['PROCESS_PERFORMANCE_DATA'], methods=['GET'])
 def get_process_performance_data():
     process_arr = request.args.getlist('process')
     start_date = request.args.get('startdate')

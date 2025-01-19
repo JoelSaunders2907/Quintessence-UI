@@ -51,7 +51,7 @@ export function HistoryTab() {
   return (
     <div className="py-6">
       <div className="flex justify-between items-start mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">History</h1>
+        {/* <h1 className="text-2xl font-bold text-gray-800">History</h1> */}
         <DatePicker
           selectedDate={selectedDate}
           onChange={setSelectedDate}
